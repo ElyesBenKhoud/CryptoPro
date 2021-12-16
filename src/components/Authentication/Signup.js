@@ -7,7 +7,7 @@ const Signup = ({ handleClose = { handleClose } }) => {
   const [confirmPassword, setconfirmPassword] = useState("");
 
   const handleSubmit = () => {
-    console.log("hi");
+    // if(password !== confirmPassword)
   };
   return (
     <Box
