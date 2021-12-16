@@ -21,6 +21,8 @@ const Signup = ({ handleClose = { handleClose } }) => {
     }
     //alert success
     try {
+      //result here provide an object with all keys available to access thee user detail through
+      // the firebase createUserWithEmailAndPassword
       const result = await createUserWithEmailAndPassword(
         auth,
         email,
