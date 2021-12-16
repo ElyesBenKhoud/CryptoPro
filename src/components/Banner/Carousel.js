@@ -20,7 +20,6 @@ const Carousel = () => {
 
   useEffect(() => {
     fetchTrendingCoins();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currency]);
 
   const useStyles = makeStyles((theme) => ({
