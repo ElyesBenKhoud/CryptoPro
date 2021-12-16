@@ -1,8 +1,6 @@
 # Cryptocurrency Tracker with React JS, Material UI and Chart JS
 
-[![crypto](https://media-exp1.licdn.com/dms/image/C4E03AQEPiYxXAdO6zw/profile-displayphoto-shrink_200_200/0/1634371836132?e=1643846400&v=beta&t=qZDacDoGAZ6Yb74VP0F6YmCv4RyDoAZ0SoQLRK1V0sk)]
-
-## Demo
+![crypto](https://media-exp1.licdn.com/dms/image/C4E03AQEPiYxXAdO6zw/profile-displayphoto-shrink_200_200/0/1634371836132?e=1643846400&v=beta&t=qZDacDoGAZ6Yb74VP0F6YmCv4RyDoAZ0SoQLRK1V0sk)
 
 #### Here is a working live demo :
 
