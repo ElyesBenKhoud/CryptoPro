@@ -29,7 +29,28 @@ const useStyles = makeStyles({
     backgroundColor: "#EEBC1D",
     objectFit: "contain",
   },
+  logout: {
+    height: "8%",
+    width: "100%",
+    backgroundColor: "#EEBC1D",
+    marginTop: 20,
+  },
+  watchlist: {
+    flex: 1,
+    width: "100%",
+    backgroundColor: "grey",
+    borderRadius: 10,
+    padding: 15,
+    paddingTop: 10,
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    gap: 12,
+    overflowY: "scroll",
+  },
 });
+
+const logout = () => {};
 
 export default function UserSidebar() {
   const classes = useStyles();
@@ -88,7 +109,20 @@ export default function UserSidebar() {
                 >
                   {user.displayName || user.email}
                 </span>
+                <div className={classes.watchlist}>
+                  <span style={{ fontSize: 15, textShadow: "0 0 5px black" }}>
+                    watch list
+                  </span>
+                </div>
               </div>
+              <Button
+                variant="contained"
+                className={classes.logout}
+                onClick={logout}
+              >
+                {" "}
+                Log out
+              </Button>
             </div>
           </Drawer>
         </React.Fragment>
