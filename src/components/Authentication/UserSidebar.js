@@ -14,6 +14,21 @@ const useStyles = makeStyles({
     flexDirection: "column",
     fontFamily: "monospace",
   },
+  profile: {
+    flex: 1,
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    gap: "20px",
+    height: "92%",
+  },
+  picture: {
+    width: 200,
+    height: 200,
+    cursor: "pointer",
+    backgroundColor: "#EEBC1D",
+    objectFit: "contain",
+  },
 });
 
 export default function UserSidebar() {
@@ -55,7 +70,26 @@ export default function UserSidebar() {
             onClose={toggleDrawer(anchor, false)}
           >
             {" "}
-            <div className={classes.container}>qsdqsdqsdqsd</div>
+            <div className={classes.container}>
+              <div className={classes.profile}>
+                <Avatar
+                  className={classes.picture}
+                  src={user.photoURL}
+                  alt={user.displayName || user.email}
+                />
+                <span
+                  style={{
+                    width: "100%",
+                    fontSize: 25,
+                    textAlign: "center",
+                    fontWeight: "bolder",
+                    wordWrap: "break-word",
+                  }}
+                >
+                  {user.displayName || user.email}
+                </span>
+              </div>
+            </div>
           </Drawer>
         </React.Fragment>
       ))}
