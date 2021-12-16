@@ -4,6 +4,8 @@ import Drawer from "@material-ui/core/Drawer";
 import Button from "@material-ui/core/Button";
 import { CryptoState } from "../../CryptoContext";
 import { Avatar } from "@material-ui/core";
+import { signOut } from "firebase/auth";
+import { auth, db } from "../../firebase";
 
 const useStyles = makeStyles({
   container: {
@@ -50,15 +52,25 @@ const useStyles = makeStyles({
   },
 });
 
-const logout = () => {};
-
 export default function UserSidebar() {
   const classes = useStyles();
   const [state, setState] = React.useState({
     right: false,
   });
 
-  const { user } = CryptoState();
+  const { user, setAlert } = CryptoState();
+
+  const logout = () => {
+    signOut(auth);
+    setAlert({
+      open: true,
+      type: "success",
+      message: "Logout Successfull !",
+    });
+
+    toggleDrawer();
+  };
+
   const toggleDrawer = (anchor, open) => (event) => {
     if (
       event.type === "keydown" &&
