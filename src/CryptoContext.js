@@ -17,7 +17,7 @@ const CryptoContext = ({ children }) => {
     message: "",
     type: "success",
   });
-
+  const [watchlist, setwatchlist] = useState([]);
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) setuser(user);
@@ -51,6 +51,7 @@ const CryptoContext = ({ children }) => {
         alert,
         setalert,
         user,
+        watchlist,
       }}
     >
       {children}

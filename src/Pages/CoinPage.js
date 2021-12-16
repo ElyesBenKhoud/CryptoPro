@@ -15,7 +15,7 @@ const CoinPage = () => {
   const { id } = useParams();
   const [coin, setCoin] = useState();
 
-  const { currency, symbol, user, setAlert, watchlist } = CryptoState();
+  const { currency, symbol, user, setalert, watchlist } = CryptoState();
 
   const fetchCoin = async () => {
     const { data } = await axios.get(SingleCoin(id));
@@ -32,13 +32,13 @@ const CoinPage = () => {
         { merge: true }
       );
 
-      setAlert({
+      setalert({
         open: true,
         message: `${coin.name} Added to the Watchlist !`,
         type: "success",
       });
     } catch (error) {
-      setAlert({
+      setalert({
         open: true,
         message: error.message,
         type: "error",
@@ -54,13 +54,13 @@ const CoinPage = () => {
         { merge: true }
       );
 
-      setAlert({
+      setalert({
         open: true,
         message: `${coin.name} Removed from the Watchlist !`,
         type: "success",
       });
     } catch (error) {
-      setAlert({
+      setalert({
         open: true,
         message: error.message,
         type: "error",
