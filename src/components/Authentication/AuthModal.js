@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
-import { Button } from "@material-ui/core";
+import { AppBar, Button, Tab, Tabs } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -29,6 +29,12 @@ export default function AuthModal() {
 
   const handleClose = () => {
     setOpen(false);
+  };
+
+  const [value, setValue] = React.useState(0);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
   };
 
   return (
@@ -58,10 +64,20 @@ export default function AuthModal() {
       >
         <Fade in={open}>
           <div className={classes.paper}>
-            <h2 id="transition-modal-title">Transition modal</h2>
-            <p id="transition-modal-description">
-              react-transition-group animates me.
-            </p>
+            <AppBar
+              position="static"
+              style={{ backgroundColor: "transparent", color: "white" }}
+            >
+              <Tabs
+                value={value}
+                onChange={handleChange}
+                variant="fullWidth"
+                style={{ borderRadius: 10 }}
+              >
+                <Tab label="Login" />
+                <Tab label="Sign Up" />
+              </Tabs>
+            </AppBar>
           </div>
         </Fade>
       </Modal>
