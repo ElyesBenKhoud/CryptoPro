@@ -2,6 +2,8 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import Button from "@material-ui/core/Button";
+import { CryptoState } from "../../CryptoContext";
+import { Avatar } from "@material-ui/core";
 
 const useStyles = makeStyles({
   list: {
@@ -18,6 +20,7 @@ export default function UserSidebar() {
     right: false,
   });
 
+  const { user } = CryptoState();
   const toggleDrawer = (anchor, open) => (event) => {
     if (
       event.type === "keydown" &&
@@ -33,7 +36,17 @@ export default function UserSidebar() {
     <div>
       {["right"].map((anchor) => (
         <React.Fragment key={anchor}>
-          <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
+          <Avatar
+            onClick={toggleDrawer(anchor, true)}
+            style={{
+              height: 38,
+              width: 38,
+              cursor: "pointer",
+              backgroundColor: "#EEBC1D",
+            }}
+            src={user.photoURL}
+            alt={user.displayName || user.email}
+          ></Avatar>
           <Drawer
             anchor={anchor}
             open={state[anchor]}
